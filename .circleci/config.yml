@@ -64,16 +64,16 @@ jobs:
           command: npm run test:unit
       - save_npm
   
-  workflows:
-    pull-request:
-      jobs:
-        - setup
-        - lint:
-            requires:
-              - setup
-        - build:
-            requires:
-              - lint
-        - test:
-            requires:
-              - build
+workflows:
+  pull-request:
+    jobs:
+      - setup
+      - lint:
+          requires:
+            - setup
+      - build:
+          requires:
+            - lint
+      - test:
+          requires:
+            - build
